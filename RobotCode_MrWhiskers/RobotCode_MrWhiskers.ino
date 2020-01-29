@@ -128,18 +128,4 @@ void loop() {
   else{
     //Do Nothing
   }
-  /*Serial.println("RCCH 1 = ");
-  Serial.println(RCCH1Read);
-  Serial.println("RCCH 2 = ");
-  Serial.println(RCCH2Read);
-  Serial.println("RCCH 3 = ");
-  Serial.println(RCCH3Read);
-  Serial.println("RCCH 4 = ");
-  Serial.println(RCCH4Read);*/
-  
-  //LED TEST
-  /*digitalWrite(testLED,HIGH);
-  delay(100);
-  digitalWrite(testLED,LOW);*/
-  delay(100);
 }

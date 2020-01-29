@@ -1,1 +1,20 @@
 # RobotWars
+
+Mr Whiskers Code
+
+PINOUT:
+
+OUTPUTS:
+
+H BRIDGE
+IN1 = 3
+IN2 = 5
+IN3 = 6
+IN4 = 9
+
+WEAPON (Relay) = 12
+
+CH1 IN = 14 (A0)	NOTHING
+CH2 IN = 15 (A1)	R MOTOR
+CH3 IN = 16 (A2)	L MOTOR
+CH4 IN = 17 (A3)	WEAPON TOGGLE
