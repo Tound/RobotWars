@@ -11,10 +11,10 @@
 int Buzzer = 10; //PWM
 int weapon = 12;
 //4 RC CHANNELS
-int RCH1 = 14; //LEDs
+int RCH1 = 14; //Weapon
 int RCH2 = 15; //MOTOR B SPEED
 int RCH3 = 16; //MOTOR A SPEED
-int RCH4 = 17; //Weapon
+int RCH4 = 17; //LEDs
 
 int RCCH1Read; //Store PPM Values
 int RCCH2Read; //Store PPM Values
@@ -31,7 +31,6 @@ boolean weaponToggle = false;
 //Arm Robot
 void arm(){
   Serial.print("Ready...\n");
-  
   //BEEP
   tone(Buzzer, 3000, 300);
   delay(300);
@@ -52,14 +51,14 @@ void arm(){
 
 void toggleWeapon(){
   if(weaponToggle == false){
-      digitalWrite(weapon, HIGH);
+      digitalWrite(weapon, LOW);
       weaponToggle = true;
   }
   else{
-      digitalWrite(weapon, LOW);
+      digitalWrite(weapon, HIGH);
       weaponToggle = false;
   }
-  delay(10);
+  delay(50);
 }
 
 void setup() {
@@ -83,7 +82,7 @@ void loop() {
   //Read Rx Input
   RCCH3Read = pulseIn(RCH3, HIGH); //Left Stick
   RCCH2Read = pulseIn(RCH2, HIGH); //Right Stick
-  RCCH4Read = pulseIn(RCH4, HIGH); //Weapon
+  RCCH1Read = pulseIn(RCH1, HIGH); //Weapon
 
   //CH3 Forward - MOTOR A
   if(RCCH3Read > 1550){
@@ -121,7 +120,7 @@ void loop() {
   }
 
   //CH4 - Weapon
-  if(RCCH4Read < 1000){
+  if(RCCH1Read < 1000){
     toggleWeapon();
   }
   //Neutral  Sticks
